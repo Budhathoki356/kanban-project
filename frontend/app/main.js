@@ -1,5 +1,5 @@
 import { Application } from "backbone.marionette";
-import RootView from "./app";
+import RootView from "./views/Root";
 
 const App = Application.extend({
   region: "#root",

@@ -1,9 +1,9 @@
 import { View } from "backbone.marionette";
-import _ from "underscore";
-import BoardView from "./views/Board";
+import BoardView from '../Board/index'
+import template from './template.pug'
 
 export default View.extend({
-  template: _.template('<nav id="nav-hook"></nav><div id="main-hook"></div>'),
+  template,
 
   regions: {
     main: "#main-hook",
