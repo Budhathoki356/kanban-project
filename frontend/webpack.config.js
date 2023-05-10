@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
@@ -12,7 +13,16 @@ module.exports = {
       {
         test: /\.pug$/,
         loader: "pug-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
     ],
   },
@@ -23,6 +33,9 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       _: "underscore",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "../style.css",
     }),
   ],
   resolve: {

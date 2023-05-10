@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! backbone.marionette */ \"./node_modules/backbone.marionette/lib/backbone.marionette.js\");\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(backbone_marionette__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _views_Root__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Root */ \"./app/views/Root/index.js\");\n\n\n\nconst App = backbone_marionette__WEBPACK_IMPORTED_MODULE_1__.Application.extend({\n  region: \"#root\",\n\n  onStart() {\n    this.showView(new _views_Root__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n  },\n});\n\nconst app = new App();\napp.start();\n\n\n//# sourceURL=webpack://frontend/./app/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! backbone.marionette */ \"./node_modules/backbone.marionette/lib/backbone.marionette.js\");\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(backbone_marionette__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _views_Root__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Root */ \"./app/views/Root/index.js\");\n/* harmony import */ var _assets_scss_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/scss/style.scss */ \"./assets/scss/style.scss\");\n\n\n\n\n\nconst App = backbone_marionette__WEBPACK_IMPORTED_MODULE_2__.Application.extend({\n  region: \"#root\",\n\n  onStart() {\n    this.showView(new _views_Root__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n  },\n});\n\nconst app = new App();\napp.start();\n\n\n//# sourceURL=webpack://frontend/./app/main.js?");
 
 /***/ }),
 
@@ -27,7 +27,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var back
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! backbone.marionette */ \"./node_modules/backbone.marionette/lib/backbone.marionette.js\");\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(backbone_marionette__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _template_pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./template.pug */ \"./app/views/Board/template.pug\");\n/* harmony import */ var _template_pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_template_pug__WEBPACK_IMPORTED_MODULE_0__);\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (backbone_marionette__WEBPACK_IMPORTED_MODULE_1__.View.extend({\n  className: \"container-fluid\",\n\n  template: (_template_pug__WEBPACK_IMPORTED_MODULE_0___default()),\n}));\n\n\n//# sourceURL=webpack://frontend/./app/views/Board/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! backbone.marionette */ \"./node_modules/backbone.marionette/lib/backbone.marionette.js\");\n/* harmony import */ var backbone_marionette__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(backbone_marionette__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _template_pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./template.pug */ \"./app/views/Board/template.pug\");\n/* harmony import */ var _template_pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_template_pug__WEBPACK_IMPORTED_MODULE_0__);\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (backbone_marionette__WEBPACK_IMPORTED_MODULE_1__.View.extend({\n  className: \"container\",\n\n  template: (_template_pug__WEBPACK_IMPORTED_MODULE_0___default()),\n}));\n\n\n//# sourceURL=webpack://frontend/./app/views/Board/index.js?");
 
 /***/ }),
 
@@ -82,13 +82,24 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 
 /***/ }),
 
+/***/ "./assets/scss/style.scss":
+/*!********************************!*\
+  !*** ./assets/scss/style.scss ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://frontend/./assets/scss/style.scss?");
+
+/***/ }),
+
 /***/ "./app/views/Board/template.pug":
 /*!**************************************!*\
   !*** ./app/views/Board/template.pug ***!
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var pug = __webpack_require__(/*! !../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;pug_html = pug_html + \"\\u003Cdiv class=\\\"bg-light m-2 p-5 rounded\\\"\\u003E \\u003Ch1\\u003EWelcome to Kanban App\\u003C\\u002Fh1\\u003E\\u003Cp class=\\\"lead\\\"\\u003EA simple Kanban web application built using Django Python Framework with Backbone.JS and Marionette.JS JavaScript Lib\\u003C\\u002Fp\\u003E\\u003C\\u002Fdiv\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack://frontend/./app/views/Board/template.pug?");
+eval("var pug = __webpack_require__(/*! !../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;pug_html = pug_html + \"\\u003Cdiv class=\\\"container\\\"\\u003E\\u003Ch1\\u003Ethis is second one\\u003C\\u002Fh1\\u003E\\u003C\\u002Fdiv\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack://frontend/./app/views/Board/template.pug?");
 
 /***/ }),
 
