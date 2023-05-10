@@ -2,12 +2,17 @@ var webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: "./app/driver.js",
+  entry: "./app/main.js",
   module: {
     rules: [
       {
         test: /\.html$/,
         loader: "underscore-template-loader",
+      },
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
+        exclude: /node_modules/
       },
     ],
   },
