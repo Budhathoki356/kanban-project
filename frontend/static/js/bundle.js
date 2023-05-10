@@ -99,7 +99,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var pug = __webpack_require__(/*! !../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;pug_html = pug_html + \"\\u003Cdiv class=\\\"container\\\"\\u003E\\u003Ch1\\u003EWelcome to Kanban App\\u003C\\u002Fh1\\u003E\\u003Cp class=\\\"lead\\\"\\u003EA simple Kanban web application built using Django Python Framework with Backbone.JS and Marionette.JS JavaScript Lib\\u003C\\u002Fp\\u003E\\u003C\\u002Fdiv\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack://frontend/./app/views/Board/template.pug?");
+eval("var pug = __webpack_require__(/*! !../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;pug_html = pug_html + \"\\u003Cdiv class=\\\"container\\\"\\u003E\\u003Ch1\\u003Ethis is second one\\u003C\\u002Fh1\\u003E\\u003C\\u002Fdiv\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack://frontend/./app/views/Board/template.pug?");
 
 /***/ }),
 
