@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "^2.11.7",
     "backbone": "^1.4.1",
     "backbone.babysitter": "^1.0.0",
