@@ -6,7 +6,7 @@ export default View.extend({
   template,
 
   regions: {
-    main: "#main-hook",
+    main: "#board",
   },
 
   onRender() {

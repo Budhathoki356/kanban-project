@@ -1,8 +1,6 @@
-import { View } from "backbone.marionette";
+import { CollectionView } from "backbone.marionette";
 import template from "./template.pug";
 
-export default View.extend({
-  className: "container",
-
+export default CollectionView.extend({
   template,
 });
