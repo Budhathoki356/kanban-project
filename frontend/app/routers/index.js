@@ -1,24 +1,33 @@
-import { Router } from "backbone";
-import app from "../app";
-import Board from "../views/Board";
-import NewLane from "../views/Lane/NewLane";
+import Mn from 'backbone.marionette';
 
-export default Router.extend({
-  views: {
-    board: null,
-    newLane: null,
+
+const Controller = Mn.Object.extend({
+  default() {
+    const rootView = this.getOption('rootView')
+    rootView.laneList()
   },
-
-  routes: {
-    "": "board",
-    newLane: "newLane",
-  },
-
-  initialize() {},
-
-  board() {},
 
   newLane() {
-    new NewLane().render()
+    const rootView = this.getOption('rootView');
+    rootView.newLane();
   },
+
+  deleteLane(id) {
+    console.log(parseInt(id))
+    console.log('heleo delete')
+  }
+  
+});
+
+
+export const Router = Mn.AppRouter.extend({
+  initialize(options) {
+    this.controller = new Controller(options);
+  },
+  
+  appRoutes: {
+    '': 'default',
+    'lane': 'newLane',
+    'lane/:laneId': 'deleteLane'
+  }
 });
