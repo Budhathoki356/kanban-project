@@ -1,15 +1,5 @@
-import { Application } from "backbone.marionette";
-import RootView from "./views/Root";
+import app from "./app";
 
-import '../assets/scss/style.scss'
-
-const App = Application.extend({
-  region: "#root",
-
-  onStart() {
-    this.showView(new RootView());
-  },
+document.addEventListener("DOMContentLoaded", () => {
+  app.start();
 });
-
-const app = new App();
-app.start();
