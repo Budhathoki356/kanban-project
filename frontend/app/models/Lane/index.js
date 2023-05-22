@@ -1,5 +1,5 @@
 import { Model } from "backbone";
 
-var laneModal = Model.extend({});
+const LaneModel = Model.extend({});
 
-export default laneModal;
+export default LaneModel;

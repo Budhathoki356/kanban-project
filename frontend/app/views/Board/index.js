@@ -1,20 +1,19 @@
+import { history } from "backbone";
 import { View } from "backbone.marionette";
-import laneCollection from "../../collections/Lane";
-
-import LaneList from "../LaneList/index";
 import template from "./template.pug";
 
 export default View.extend({
   template,
 
-  regions: {
-    laneSection: "#lane-section",
+  ui: {
+    addLaneBtn: ".btn-lane-add",
   },
 
-  onRender() {
-    this.showChildView(
-      "laneSection",
-      new LaneList({ collection: new laneCollection({id: 1, title: 'Todo'}) })
-    );
+  events: {
+    "click @ui.addLaneBtn": "addLane",
+  },
+
+  addLane() {
+    history.navigate("lane", { trigger: true });
   },
 });

@@ -1,12 +1,9 @@
 import { Collection } from "backbone";
-import laneModel from "../../models/Lane/index"
+import LaneModel from "../../models/Lane/index"
 
-var LaneCollection = Collection.extend({
-    model: laneModel,
+const LaneCollection = Collection.extend({
+    model: LaneModel,
 })
-
-
-
 
 export default LaneCollection
 
