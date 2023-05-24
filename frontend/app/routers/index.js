@@ -1,5 +1,4 @@
 import Mn from "backbone.marionette";
-import laneModal from "../models/Lane";
 
 const Controller = Mn.Object.extend({
   default() {
@@ -25,7 +24,7 @@ export const Router = Mn.AppRouter.extend({
 
   appRoutes: {
     "": "default",
-    lane: "newLane",
-    "lane/:laneId": "deleteLane",
+    "lane": "newLane",
+    "lane/:id": "newLane",
   },
 });

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "server-json": "json-server --watch db.json --port 8000"
   },
   "author": "",
   "license": "ISC",

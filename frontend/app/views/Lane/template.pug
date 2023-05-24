@@ -1,11 +1,15 @@
-.card.bg-light.border-light
+.card.bg-light.border-light.min-vh-100.overflow-auto.mb-2
     .card-header
         .d-flex.justify-content-between.align-items-center.p-1
             h5 #{title}
-            span 
-                i.fa.solid.fa-ellipsis
 
-    .card-body.bg-white.mx-3.mt-3.mb-2.rounded
+            .flex
+                span.p-1.text-warning.lane-edit-btn
+                    i.fa-regular.fa-pen-to-square
+                span.p-1.text-danger.lane-delete-btn
+                    i.fa-solid.fa-trash-can
+
+    .card-body.bg-white.mx-3.mt-3.mb-2.rounded.k-card-body
         h5.card-title Light card title
         p.card-text
-            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+            | Some quick examplaasdfas afasd fafas dfas dfasdf sdf asdfsa dfs dfasd fsadf sadf asdf asdfsa dfas sdaf asdf asdfa sdfasd fasdfhasjtext to build on the card title and make up the bulk of the card&apos;s content.
