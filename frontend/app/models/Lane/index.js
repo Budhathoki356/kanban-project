@@ -12,6 +12,10 @@ const LaneModel = Model.extend({
       id: id,
     });
   },
+
+  deleteLane(id) {
+    api.delete(`${this.url()}/${id}`)
+  }
 });
 
 export default LaneModel;

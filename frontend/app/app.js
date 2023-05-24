@@ -8,7 +8,7 @@ import { Router } from "./routers";
 
 import "../assets/scss/style.scss";
 import LaneList from "./views/LaneList";
-import LaneCollection from "./collections/Lane";
+import lanesCollection from "./collections/Lane";
 import LaneModel from "./models/Lane";
 
 const RootView = View.extend({
@@ -26,20 +26,18 @@ const RootView = View.extend({
   },
 
   laneList() {
+    lanesCollection.fetch();
+
     this.showChildView(
       "section",
       new LaneList({
-        collection: new LaneCollection(
-          { id: 1, title: "Todo1" },
-          { id: 2, title: "Todo2" }
-        ),
+        collection: lanesCollection,
       })
     );
   },
 
   newLane() {
-    const model = new LaneModel();
-    this.showChildView("section", new NewLane({ model: model }));
+    this.showChildView("section", new NewLane({ model: new LaneModel() }));
   },
 });
 

@@ -1,0 +1,11 @@
+.k-card {
+    &-body {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+}
+
+.k-lane-modal {
+  display: block !important;
+  opacity: 1 !important;
+}

@@ -1,1 +1,18 @@
-.lane.row.mt-4
+#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Edit Lane
+                span.k-lane-modal-close-btn(type='button', data-dismiss='modal', aria-label='Close')
+                    span &times;
+
+            .modal-body
+                label Name
+                input.k-lane-title.form-control.form-control-sm(type='text')
+                input.k-lane-id.form-control.form-control-sm(type='hidden')
+
+            .modal-footer
+                button.btn.btn-secondary.k-lane-modal-close-btn(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary.k-lane-edit-btn(type='button') Save
+
+.lane.row.mt-4.flex-row.flex-nowrap

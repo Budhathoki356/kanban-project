@@ -5,11 +5,7 @@
       "title": "Todo"
     },
     {
-      "title": "Work in progress",
-      "id": 2
-    },
-    {
-      "title": "Review",
+      "title": "Working",
       "id": 3
     },
     {
@@ -17,12 +13,8 @@
       "id": 4
     },
     {
-      "title": "working",
+      "title": "Working",
       "id": 5
-    },
-    {
-      "title": "fasdfa",
-      "id": 6
     }
   ]
 }
