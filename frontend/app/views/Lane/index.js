@@ -28,6 +28,11 @@ export default CompositeView.extend({
     destroy: "render",
   },
 
+  // Third, Update the view on change in attribute 
+  modelEvents: {
+    "change:title": "render"
+  },
+
   openModal() {
     this.trigger("toggle:modal");
     this.trigger("edit:lane", this);
