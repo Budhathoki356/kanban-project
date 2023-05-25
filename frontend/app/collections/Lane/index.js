@@ -10,7 +10,6 @@ const LaneCollection = Collection.extend({
   },
 
   setLanes(lanes) {
-    const self = this;
     lanes.forEach((lane) => {
       new LaneModel({ ...lane });
     });

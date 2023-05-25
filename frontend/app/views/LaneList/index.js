@@ -9,6 +9,10 @@ export default CompositeView.extend({
 
   childViewContainer: ".lane",
 
+  childView: LaneView,
+
+  template,
+
   ui: {
     modal: ".modal",
     laneTitleInput: ".k-lane-title",
@@ -17,22 +21,18 @@ export default CompositeView.extend({
     editLaneBtn: ".k-lane-edit-btn",
   },
 
+  collectionEvents: {
+    "reset": "render",
+  },
+
   events: {
     "click @ui.modalCloseBtn": "closeModal",
     "click @ui.editLaneBtn": "updateSingleLane",
   },
 
-  childView: LaneView,
-
-  template,
-
   childViewEvents: {
     "toggle:modal": "toggleModal",
     "edit:lane": "editLane",
-  },
-
-  collectionEvents: {
-    "reset": "render",
   },
 
   editLane(lane) {

@@ -1,4 +1,25 @@
-.card.bg-light.border-light.min-vh-100.overflow-auto.mb-2
+#addCardModal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+            .modal-header
+                h5.modal-title Add Card
+                span.k-card-modal-close-btn(type='button' data-dismiss='modal' aria-label='Close')
+                    span &times;
+
+            .modal-body
+                .form-group
+                    label Title
+                    input.k-card-title.form-control.form-control-sm(type='text')
+                    input.k-card-laneId.form-control.form-control-sm(type='hidden' value=`${id}`)
+                .form-group.mt-2
+                    label Description
+                    textarea.k-card-description.form-control.form-control-sm(type='text' rows='4')
+
+            .modal-footer
+                button.btn.btn-secondary.k-card-modal-close-btn(type='button' data-dismiss='modal') Close
+                button.btn.btn-success.k-card-save-btn(type='button') Save
+
+.card.bg-light.border-light.mb-2
     .card-header
         .d-flex.justify-content-between.align-items-center.p-1
             h5 #{title}
@@ -8,8 +29,8 @@
                     i.fa-regular.fa-pen-to-square
                 span.p-1.text-danger.lane-delete-btn
                     i.fa-solid.fa-trash-can
+    .d-grid
+        button.btn.btn-outline-secondary.mx-3.mt-3.border.k-add-card-btn
+            i.fa-solid.fa-plus
 
-    .card-body.bg-white.mx-3.mt-3.mb-2.rounded.k-card-body
-        h5.card-title Light card title
-        p.card-text
-            | Some quick examplaasdfas afasd fafas dfas dfasdf sdf asdfsa dfs dfasd fsadf sadf asdf asdfsa dfas sdaf asdf asdfa sdfasd fasdfhasjtext to build on the card title and make up the bulk of the card&apos;s content.
+    #k-card-list

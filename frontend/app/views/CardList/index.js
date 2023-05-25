@@ -1,15 +1,9 @@
 import { CompositeView } from "backbone.marionette";
+import Card from "../Card";
 import template from "./template.pug";
 
 export default CompositeView.extend({
-  className: "container overflow-auto",
-
-  childViewContainer: ".lane",
-
-  ui: {},
-
-  events: {},
-
-
   template,
+  childViewContainer: ".k-card",
+  childView: Card,
 });
