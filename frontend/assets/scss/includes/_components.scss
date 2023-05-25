@@ -1,22 +1,24 @@
 .k-card {
-    &-body {
-        flex-grow: 0;
-        flex-shrink: 0;
-    }
+  &-body {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
 
-    &-modal {
-      display: block !important;
-      opacity: 1 !important;
-    }
+  &-modal {
+    display: block !important;
+    opacity: 1 !important;
+  }
 }
 
-.k-lane-modal {
-  display: block !important;
-  opacity: 1 !important;
-}
+.k-lane {
+  &-modal {
+    display: block !important;
+    opacity: 1 !important;
+  }
 
-.k-lane-body {
+  &-body {
     height: 80vh;
     margin-top: 10px;
     overflow-y: auto;
+  }
 }

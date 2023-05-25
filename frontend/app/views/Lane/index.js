@@ -1,3 +1,4 @@
+import { $ } from "backbone";
 import { View } from "backbone.marionette";
 import { cardsCollection, CardsCollection } from "../../collections/Card";
 import CardModel from "../../models/Card";
@@ -67,7 +68,7 @@ export default View.extend({
   },
 
   async addCard() {
-
+    console.log('Add Card')
     // 1. Hit the api
     const res = await cardsCollection.createCard({
       title: this.ui.cardTitleInput.val(),
