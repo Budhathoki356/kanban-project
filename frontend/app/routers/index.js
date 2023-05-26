@@ -9,12 +9,7 @@ const Controller = Mn.Object.extend({
   newLane() {
     const rootView = this.getOption("rootView");
     rootView.newLane();
-  },
-
-  deleteLane(id) {
-    console.log(parseInt(id));
-    console.log("heleo delete");
-  },
+  }
 });
 
 export const Router = Mn.AppRouter.extend({
@@ -25,6 +20,5 @@ export const Router = Mn.AppRouter.extend({
   appRoutes: {
     "": "default",
     "lane": "newLane",
-    "lane/:id": "newLane",
   },
 });

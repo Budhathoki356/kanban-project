@@ -1,4 +1,5 @@
 import { CompositeView } from "backbone.marionette";
+import laneCollection from "../../collections/Lane";
 import LaneModel from "../../models/Lane";
 import LaneView from "../Lane/index";
 import template from "./template.pug";
@@ -8,6 +9,10 @@ export default CompositeView.extend({
 
   childViewContainer: ".lane",
 
+  childView: LaneView,
+
+  template,
+
   ui: {
     modal: ".modal",
     laneTitleInput: ".k-lane-title",
@@ -16,22 +21,18 @@ export default CompositeView.extend({
     editLaneBtn: ".k-lane-edit-btn",
   },
 
+  collectionEvents: {
+    "reset": "render",
+  },
+
   events: {
     "click @ui.modalCloseBtn": "closeModal",
     "click @ui.editLaneBtn": "updateSingleLane",
   },
 
-  childView: LaneView,
-
-  template,
-
   childViewEvents: {
     "toggle:modal": "toggleModal",
     "edit:lane": "editLane",
-  },
-
-  modelEvents: {
-    "change": "render"
   },
 
   editLane(lane) {
@@ -41,10 +42,16 @@ export default CompositeView.extend({
 
   updateSingleLane() {
     const laneModel = new LaneModel();
+
+    // First, Update the Model and then update on server
     laneModel.updateLane({
       id: this.ui.laneIdInput.val(),
       title: this.ui.laneTitleInput.val(),
     });
+
+    // Second, Update the collection
+    laneCollection.set(laneModel, { remove: false });
+
     this.ui.modal.removeClass("k-lane-modal");
   },
 

@@ -7,6 +7,7 @@ const LaneModel = Model.extend({
   },
 
   updateLane({ id, title }) {
+    this.set({ id, title });
     api.patch(`${this.url()}/${id}`, {
       title: title,
       id: id,
@@ -14,8 +15,8 @@ const LaneModel = Model.extend({
   },
 
   deleteLane(id) {
-    api.delete(`${this.url()}/${id}`)
-  }
+    api.delete(`${this.url()}/${id}`);
+  },
 });
 
 export default LaneModel;

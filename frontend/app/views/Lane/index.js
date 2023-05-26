@@ -1,9 +1,25 @@
-import { CompositeView } from "backbone.marionette";
+import { $ } from "backbone";
+import { View } from "backbone.marionette";
+import { cardsCollection, CardsCollection } from "../../collections/Card";
+import CardModel from "../../models/Card";
 import LaneModel from "../../models/Lane";
+import CardListView from "../CardList/index";
 import template from "./template.pug";
 
-export default CompositeView.extend({
+export default View.extend({
   className: "col-3",
+
+  regions: {
+    kLaneList: "#k-card-list",
+  },
+
+  async onRender() {
+    const laneId = this.model.get("id");
+    const res = await cardsCollection.fetch(laneId);
+    const cards = new CardsCollection(res);
+
+    this.showChildView("kLaneList", new CardListView({ collection: cards }));
+  },
 
   template,
 
@@ -15,20 +31,63 @@ export default CompositeView.extend({
   },
 
   ui: {
+    modal: ".modal",
     laneDeleteBtn: ".lane-delete-btn",
     laneEditBtn: ".lane-edit-btn",
+    addCardBtn: ".k-add-card-btn",
+    closeCardBtn: ".k-card-modal-close-btn",
+    cardTitleInput: ".k-card-title",
+    cardDescriptionInput: ".k-card-description",
+    laneId: ".k-card-laneId",
+    cardSaveBtn: ".k-card-save-btn",
   },
 
   events: {
-    "click @ui.laneEditBtn": "openModal",
+    "click @ui.laneEditBtn": "openLaneModal",
     "click @ui.laneDeleteBtn": "deleteLane",
+    "click @ui.addCardBtn": "openCardModal",
+    "click @ui.closeCardBtn": "closeCardModal",
+    "click @ui.cardSaveBtn": "addCard",
   },
 
   collectionEvents: {
     destroy: "render",
   },
 
-  openModal() {
+  // Third, Update the view on change in attribute
+  modelEvents: {
+    "change:title": "render",
+  },
+
+  openCardModal() {
+    this.ui.modal.toggleClass("k-card-modal");
+  },
+
+  closeCardModal() {
+    this.ui.modal.removeClass("k-card-modal");
+  },
+
+  async addCard() {
+    console.log('Add Card')
+    // 1. Hit the api
+    const res = await cardsCollection.createCard({
+      title: this.ui.cardTitleInput.val(),
+      description: this.ui.cardDescriptionInput.val(),
+      laneId: Number(this.ui.laneId.val()),
+    });
+
+    // 2. Push it on collection of same instance
+    cardsCollection.push(new CardModel({...res}));
+
+    this.ui.modal.removeClass("k-card-modal");
+    this.ui.cardTitleInput.val("");
+    this.ui.cardDescriptionInput.val("");
+
+    // 3. Render the component
+    this.render()
+  },
+
+  openLaneModal() {
     this.trigger("toggle:modal");
     this.trigger("edit:lane", this);
   },
