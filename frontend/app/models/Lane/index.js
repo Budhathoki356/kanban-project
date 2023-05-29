@@ -6,6 +6,16 @@ const LaneModel = Model.extend({
     return `/lanes`;
   },
 
+  validate: function (attrs) {
+    if (!attrs.title) {
+      return "Title is required.";
+    }
+
+    if (attrs.title.length >= 20) {
+      return "Title should be less than 20 character.";
+    }
+  },
+
   updateLane({ id, title }) {
     this.set({ id, title });
     api.patch(`${this.url()}/${id}`, {

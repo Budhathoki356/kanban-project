@@ -1,5 +1,4 @@
 import { CompositeView } from "backbone.marionette";
-import { cardsCollection } from "../../collections/Card";
 import CardModel from "../../models/Card";
 import Card from "../Card";
 import template from "./template.pug";
@@ -12,13 +11,14 @@ export default CompositeView.extend({
   childView: Card,
 
   ui: {
-    titleInput: '.k-card-title',
-    cardIdInput: '.k-card-id',
-    laneIdInput: '.k-card-laneId',
-    descriptionInput: '.k-card-description',
-    cardCloseModalBtn: '.k-card-modal-close-btn',
-    cardEditModalBtn: '.k-card-edit-btn',
-    modal: '.modal'
+    titleInput: ".k-card-title",
+    cardIdInput: ".k-card-id",
+    laneIdInput: ".k-card-laneId",
+    descriptionInput: ".k-card-description",
+    cardCloseModalBtn: ".k-card-modal-close-btn",
+    cardEditModalBtn: ".k-card-edit-btn",
+    modal: ".modal",
+    cardErrorMsg: ".card-error-msg",
   },
 
   events: {
@@ -42,21 +42,31 @@ export default CompositeView.extend({
     this.ui.descriptionInput.val(card.model.get("description"));
   },
 
-  updateSingleCard() {
-    const cardModel = new CardModel();
-
-    // First, Update the Model and then update on server
-    cardModel.updateCard({
+  updateSingleCard(e) {
+    const cardModel = new CardModel({
       id: Number(this.ui.cardIdInput.val()),
       laneId: Number(this.ui.laneIdInput.val()),
       title: this.ui.titleInput.val(),
-      description: this.ui.descriptionInput.val()
+      description: this.ui.descriptionInput.val(),
     });
 
-    // Second, Update the collection
-    this.collection.set(cardModel, { remove: false });
+    if (cardModel.isValid()) {
+      // First, Update the Model and then update on server
+      cardModel.updateCard({
+        id: Number(this.ui.cardIdInput.val()),
+        laneId: Number(this.ui.laneIdInput.val()),
+        title: this.ui.titleInput.val(),
+        description: this.ui.descriptionInput.val(),
+      });
 
-    this.ui.modal.removeClass("k-card-modal");
+      // Second, Update the collection
+      this.collection.set(cardModel, { remove: false });
+
+      this.ui.modal.removeClass("k-card-modal");
+    } else {
+      e.preventDefault();
+      this.ui.cardErrorMsg.text(cardModel.validationError);
+    }
   },
 
   toggleCardModal() {
