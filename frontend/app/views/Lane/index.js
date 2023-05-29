@@ -1,4 +1,3 @@
-import { $ } from "backbone";
 import { View } from "backbone.marionette";
 import { cardsCollection, CardsCollection } from "../../collections/Card";
 import CardModel from "../../models/Card";
@@ -40,6 +39,7 @@ export default View.extend({
     cardDescriptionInput: ".k-card-description",
     laneId: ".k-card-laneId",
     cardSaveBtn: ".k-card-save-btn",
+    cardErrorMsg: ".card-error-msg",
   },
 
   events: {
@@ -67,24 +67,33 @@ export default View.extend({
     this.ui.modal.removeClass("k-card-modal");
   },
 
-  async addCard() {
-    console.log('Add Card')
-    // 1. Hit the api
-    const res = await cardsCollection.createCard({
+  async addCard(e) {
+    var cardModel = new CardModel({
       title: this.ui.cardTitleInput.val(),
       description: this.ui.cardDescriptionInput.val(),
-      laneId: Number(this.ui.laneId.val()),
     });
 
-    // 2. Push it on collection of same instance
-    cardsCollection.push(new CardModel({...res}));
+    if (cardModel.isValid()) {
+      // 1. Hit the api
+      const res = await cardsCollection.createCard({
+        title: this.ui.cardTitleInput.val(),
+        description: this.ui.cardDescriptionInput.val(),
+        laneId: Number(this.ui.laneId.val()),
+      });
 
-    this.ui.modal.removeClass("k-card-modal");
-    this.ui.cardTitleInput.val("");
-    this.ui.cardDescriptionInput.val("");
+      // 2. Push it on collection of same instance
+      cardsCollection.push(new CardModel({ ...res }));
 
-    // 3. Render the component
-    this.render()
+      this.ui.modal.removeClass("k-card-modal");
+      this.ui.cardTitleInput.val("");
+      this.ui.cardDescriptionInput.val("");
+
+      // 3. Render the component
+      this.render();
+    } else {
+      e.preventDefault();
+      this.ui.cardErrorMsg.text(cardModel.validationError);
+    }
   },
 
   openLaneModal() {
