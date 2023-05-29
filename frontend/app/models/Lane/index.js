@@ -12,7 +12,7 @@ const LaneModel = Model.extend({
     }
 
     if (attrs.title.length >= 20) {
-      return "Title should be less than 50 character.";
+      return "Title should be less than 20 character.";
     }
   },
 
