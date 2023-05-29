@@ -8,6 +8,20 @@
     display: block !important;
     opacity: 1 !important;
   }
+
+  &_show{
+    display: block;
+  }
+
+  &_hide{
+    display: none;
+  }
+}
+
+.card-btns {
+  & > span {
+    cursor: pointer;
+  }
 }
 
 .k-lane {
